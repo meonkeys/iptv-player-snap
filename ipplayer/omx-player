@@ -18,7 +18,8 @@ cleanup() {
 trap cleanup EXIT INT QUIT ILL KILL SEGV TERM
 
 while true; do
-    $PLAYER $OMXOPTS $VOL "$(cat $CHANNEL)" <$INFIFO >$OUTFIFO 2>&1 &
+    #$PLAYER $OMXOPTS $VOL "$(cat $CHANNEL)" <$INFIFO >$OUTFIFO 2>&1 &
+    $PLAYER $OMXOPTS "$(cat $CHANNEL)" > $OUTFIFO 2>&1 &
     PID=$!
     echo "$PID" >$SNAP_DATA/omx.pid
     sleep 0.5

@@ -1,6 +1,6 @@
-name: rpi-iptv-player
+name: adam-player
 version: '0.1'
-summary: OpenMax IPTV player for the raspberry pi
+summary: OpenMax player hack for the raspberry pi
 description: |
   OMXPlayer is a commandline OMX player for the Raspberry PI.
   It was developed as a testbed for the XBMC Raspberry PI implementation
@@ -36,6 +36,7 @@ apps:
       - network
       - network-bind
       - opengl
+      - home
   ipplayer-pi:
     command: ipplayer
     daemon: simple

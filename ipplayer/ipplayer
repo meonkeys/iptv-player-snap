@@ -29,6 +29,11 @@ switch_chan() {
 }
 
 while true; do
+
+     echo "wedged by Adam" >"$OUTFIFO"
+     /bin/echo -e "HTTP/1.1 200 OK\r\n\n${HTM}" | nc -l "$PORT"
+     continue
+
      HTM="$(cat $HTMDIR/index.html)"
      RET="$(/bin/echo -e "HTTP/1.1 200 OK\r\n\n${HTM}" | \
         nc -l "$PORT" | grep -v favico | grep GET | \
